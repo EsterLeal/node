@@ -27,10 +27,21 @@ const getAll = () =>{
 }
 
 const add = (comida) =>  {
+  // gera IDs aleatórios
+    comida.id = Math.random().toString(36).substr(-8)
     comidas.pratosFavoritos.push(comida)
+}
+
+const remove = (id) => {
+ let comidasRestantes = getAll().pratosFavoritos
+ 
+ comidasRestantes.filter((comida) =>{
+      return comida !== id
+    })
 }
 
 module.exports = {
     getAll,
-    add
+    add,
+    remove
 }
